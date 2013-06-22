@@ -1,8 +1,12 @@
+#include "Config.h"
 #include "cocos2d.h"
 #include "CCEGLView.h"
 #include "AppDelegate.h"
 #include "CCLuaEngine.h"
 #include "SimpleAudioEngine.h"
+
+#include "View/GameManager.h"
+
 
 using namespace CocosDenshion;
 
@@ -30,11 +34,15 @@ bool AppDelegate::applicationDidFinishLaunching()
     pDirector->setAnimationInterval(1.0 / 60);
 
     // register lua engine
-    CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
-    CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
 
-    std::string path = CCFileUtils::sharedFileUtils()->fullPathForFilename("hello.lua");
-    pEngine->executeScriptFile(path.c_str());
+    //CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
+    //CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
+
+    //std::string path = CCFileUtils::sharedFileUtils()->fullPathForFilename("hello.lua");
+    //pEngine->executeScriptFile(path.c_str());
+
+	View::_gamemanager::instance()->DisplayNowScene(View::SCENE_INIT);
+
 
     return true;
 }

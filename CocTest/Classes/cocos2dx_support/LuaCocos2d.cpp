@@ -28,7 +28,7 @@
  ****************************************************************************/
 
 
-
+#include "Config.h"
 #include "LuaCocos2d.h"
 
 /* function to release collected object via destructor */
