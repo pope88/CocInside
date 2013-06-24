@@ -2,6 +2,7 @@
 #include "CTestScene.h"
 #include "Utils/CharacterConver.h"
 #include "../GameManager.h"
+#include "../GameResources.h"
 namespace View
 {
 	void CTestScene::InitScene()
@@ -11,7 +12,7 @@ namespace View
 
 		CCLayer *testLayer = CCLayer::create();
 	
-		CCSprite *pbgSprite = CCSprite::create("Default.png");
+		CCSprite *pbgSprite = CCSprite::create(s_pPathBackGround1);
 
 		CCLabelTTF* label = CCLabelTTF::create("first scene", "Arial", 20);
 		//#endif
@@ -25,6 +26,8 @@ namespace View
 
 		testLayer->addChild(pbgSprite);
 		testLayer->addChild(pMenu);
+		testLayer->scheduleOnce(schedule_selector(CTestScene::ShowOtherScene), 3.0f);
+
 		this->addChild(testLayer);
 
 		testLayer->setTouchEnabled(true);
@@ -53,9 +56,9 @@ namespace View
 		_gamemanager::instance()->DisplayNowScene(SCENE_MENU);
 	}
 
-	void CTestScene::ShowOtherScene()
+	void CTestScene::ShowOtherScene(float t)
 	{
-		//_gamemanager::instance()->DisplayNowScene(SCENE_MENU);
+	    _gamemanager::instance()->DisplayNowScene(SCENE_MENU);
 		printf("do nothing");
 	}
 }

@@ -6,7 +6,7 @@
 #include "SimpleAudioEngine.h"
 
 #include "View/GameManager.h"
-
+#include "View/PixelResolution.h"
 
 using namespace CocosDenshion;
 
@@ -28,7 +28,11 @@ bool AppDelegate::applicationDidFinishLaunching()
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
 
 	CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
-	pEGLView->setDesignResolutionSize(320, 480, kResolutionExactFit);
+	//pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
+	pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
+
+	//set ScaleFactor
+	pDirector->setContentScaleFactor( 640 / designResolutionSize.width);
 
     // turn on display FPS
     pDirector->setDisplayStats(true);
@@ -37,7 +41,6 @@ bool AppDelegate::applicationDidFinishLaunching()
     pDirector->setAnimationInterval(1.0 / 60);
 
     // register lua engine
-
     //CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
     //CCScriptEngineManager::sharedManager()->setScriptEngine(pEngine);
 

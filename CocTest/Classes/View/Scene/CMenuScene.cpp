@@ -1,4 +1,4 @@
-#include "Config.h"
+﻿#include "Config.h"
 #include "CMenuScene.h"
 #include "../GameManager.h"
 #include "../GameResources.h"
@@ -12,7 +12,7 @@ namespace View
 
 		CCLayer *testLayer = CCLayer::create();
 
-		CCSprite *pbgSprite = CCSprite::create(s_pPathBackGround1);
+		CCSprite *pbgSprite = CCSprite::create(s_pPathBackGround2);
 
 		CCLabelTTF* label = CCLabelTTF::create("second scene", "Arial", 20);
 		//#endif
@@ -24,6 +24,7 @@ namespace View
 		pbgSprite->setPosition(ccp(origin.x + visibleSize.width/2 , origin.y + visibleSize.height/2));
 		pMenu->setPosition(ccp(origin.x + visibleSize.width/2 , origin.y + visibleSize.height/2));
 
+		pbgSprite->setScale(2.0);
 		testLayer->addChild(pbgSprite);
 		testLayer->addChild(pMenu);
 		this->addChild(testLayer);
@@ -43,7 +44,8 @@ namespace View
 		}
 		else
 		{
-			CCDirector::sharedDirector()->replaceScene(CCTransitionSlideInR::create(1.5, this));
+			//CCDirector::sharedDirector()->replaceScene(CCTransitionSlideInR::create(1.5, this));
+			CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(1.5, this));
 		}
 	}
 

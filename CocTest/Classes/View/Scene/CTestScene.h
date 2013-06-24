@@ -13,7 +13,7 @@ namespace View
 		virtual void runThisScene();
 		void InitScene();
 		void OnTextmenu_Click(CCObject *pSender);
-		void ShowOtherScene();
+		void ShowOtherScene(float t = 0.0);
 	};
 }
 #endif
