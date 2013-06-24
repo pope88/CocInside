@@ -27,6 +27,9 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCDirector *pDirector = CCDirector::sharedDirector();
     pDirector->setOpenGLView(CCEGLView::sharedOpenGLView());
 
+	CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
+	pEGLView->setDesignResolutionSize(320, 480, kResolutionExactFit);
+
     // turn on display FPS
     pDirector->setDisplayStats(true);
 
