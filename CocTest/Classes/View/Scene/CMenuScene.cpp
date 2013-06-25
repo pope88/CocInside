@@ -2,6 +2,8 @@
 #include "CMenuScene.h"
 #include "../GameManager.h"
 #include "../GameResources.h"
+#include "CCScale9Sprite.h"
+USING_NS_CC_EXT;
 
 namespace View
 {
@@ -12,7 +14,13 @@ namespace View
 
 		CCLayer *testLayer = CCLayer::create();
 
-		CCSprite *pbgSprite = CCSprite::create(s_pPathBackGround2);
+		//try 九宫格
+		//CCRect rect = CCRectMake(0, 0, 320, 480);
+		//CCRect rectInsets = CCRectMake(1, 118, 1, 30);
+		//CCSize winRect = CCSizeMake(visibleSize.width, visibleSize.height);
+		//CCScale9Sprite *pbgSprite = CCScale9Sprite::create(s_pPathBackGround2, rect, rectInsets);
+		//pbgSprite->setContentSize(winRect);
+		CCSprite  *pbgSprite = CCSprite::create(s_pPathBackGround2);
 
 		CCLabelTTF* label = CCLabelTTF::create("second scene", "Arial", 20);
 		//#endif
