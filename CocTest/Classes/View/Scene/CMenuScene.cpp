@@ -2,8 +2,6 @@
 #include "CMenuScene.h"
 #include "../GameManager.h"
 #include "../GameResources.h"
-#include "CCScale9Sprite.h"
-USING_NS_CC_EXT;
 
 namespace View
 {
